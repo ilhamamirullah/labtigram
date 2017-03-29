@@ -2,6 +2,17 @@
 
 class Welcome extends CI_Controller {
 
+	public function __construct() {
+parent::__construct();
+if($this->session->userdata('logged_in')){
+if($this->session->userdata('role')==2){
+redirect('admin/welcome');
+}
+}else{
+redirect('welcome');
+}
+}
+
 	/**
 	 * Index Page for this controller.
 	 *
