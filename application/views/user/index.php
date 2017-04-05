@@ -1,6 +1,7 @@
  <main>
 
   <!-- body -->
+
   <div class="container z-depth-3 purple">
    <ul class="tabs tabs-transparent tabs-fixed-width">
     <li class="tab"><a class="active" href="#test1">TIMELINE</a></li>
@@ -37,7 +38,7 @@
 
      <!-- modal home -->
    <div id="modal" class="modal">
-    <div class="z-depth-3 home ">   
+    <div class="z-depth-3 home ">
      <h5>nama pembuat konten</h5>
      <img src="<?php echo base_url(); ?>assets/post/ex.jpeg">
      <p>deskripsi konten</p>
@@ -61,7 +62,7 @@
      <!-- form tambah foto -->
      <div id="foto">
      <div class="row">
-      <form method="post" action="" enctype="multipart/form-data" style="padding: 10px">
+      <form method="post" action="<?php echo base_url(); ?>user/c_user/inputgambar" enctype="multipart/form-data" style="padding: 10px">
        <div class="input-field col s12 m12">
         <input id="icon_prefix" type="text" class="validate" required name="judul">
         <label for="icon_prefix">Judul</label>
@@ -69,7 +70,7 @@
        <div class="input-field col s12 m6 file-field">
         <div class="btn">
          <span>File</span>
-         <input id="uploadImage" type="file" onchange="PreviewImage();" name="image1"> 
+         <input id="uploadImage" type="file" onchange="PreviewImage();" name="image1">
         </div>
         <div class="file-path-wrapper">
          <input class="file-path validate" type="text" placeholder="Upload disini ... " required name="image" >
@@ -81,7 +82,7 @@
         <label for="textarea1">Deskripsi</label>
        </div>
        <div class="center">
-        <input class="waves-effect waves-light btn" type="submit" name="submit" value="UPLOAD">  
+        <input class="waves-effect waves-light btn" type="submit" name="submit" value="UPLOAD">
        </div>
       </form>
      </div>
@@ -90,7 +91,7 @@
      <!-- form tambah video -->
      <div id="video">
      <div class="row">
-      <form method="post" action="" enctype="multipart/form-data" style="padding: 10px">
+      <form method="post" action="<?php echo base_url(); ?>user/c_user/inputvideo" enctype="multipart/form-data" style="padding: 10px">
        <div class="input-field col s12 m12">
         <input id="icon_prefix" type="text" class="validate" required name="judul">
         <label for="icon_prefix">Judul</label>
@@ -98,10 +99,10 @@
        <div class="input-field col s12 m6 file-field">
         <div class="btn">
          <span>File</span>
-         <input id="uploadImage" type="file" onchange="PreviewImage();" name="video1"> 
+         <input id="uploadVideo" type="file" onchange="PreviewImage();" name="video1">
         </div>
         <div class="file-path-wrapper">
-         <input class="file-path validate" type="text" placeholder="Upload disini ... " required name="video" >
+         <input class="file-path validate" type="text" placeholder="Upload disini ... " required name="video1" >
         </div>
         <video id="uploadPreview" style="width: 100%;" controls /><br>
        </div>
@@ -110,7 +111,7 @@
         <label for="textarea1">Deskripsi</label>
        </div>
        <div class="center">
-        <input class="waves-effect waves-light btn" type="submit" name="submit" value="UPLOAD">  
+        <input class="waves-effect waves-light btn" type="submit" name="submit" value="UPLOAD">
        </div>
       </form>
      </div>
@@ -132,7 +133,7 @@
         <div class="col s8 m10">
          <h5>nama user</h5>
          <p>status akun</p>
-        </div>     
+        </div>
        </div>
       </div>
       <!-- akhir header profile -->
@@ -158,12 +159,12 @@
          </div>
         </div>
         <!-- akhir tampil foto profile -->
-        
+
        </div>
 
        <!-- modal profile -->
        <div id="modal1" class="modal">
-        <div class="z-depth-3 home">    
+        <div class="z-depth-3 home">
          <h5>nama pembuat konten</h5>
          <img src="<?php echo base_url(); ?>assets/post/ex.jpeg">
          <p>deskripsi konten</p>
@@ -178,7 +179,7 @@
         <div class="z-depth-3 home">
          <div class="center">
           <h5>Edit deskripsi konten</h5>
-         </div>    
+         </div>
           <div class="row">
            <form method="post" action="" style="padding: 10px">
             <div class="input-field col s12 m6 file-field">
@@ -189,7 +190,7 @@
              <label for="textarea1">Deskripsi</label>
             </div>
             <div class="center">
-             <input class="waves-effect waves-light btn" type="submit" name="submit" value="UPDATE">  
+             <input class="waves-effect waves-light btn" type="submit" name="submit" value="UPDATE">
             </div>
           </form>
          </div>
