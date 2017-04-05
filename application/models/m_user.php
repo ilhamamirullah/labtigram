@@ -24,5 +24,20 @@
       $this->db->insert('post', $data);
       return TRUE;
     }
-    
+
+    function getPost()
+    {
+      $this->db->join('user','post.user_id = user.id','inner');
+      $post = $this->db->get('post');
+      return $post->result_array();
+    }
+
+    function getPostMe($id)
+    {
+      $this->db->where('user_id',$id);
+      $this->db->join('user','post.user_id = user.id','inner');
+      $post = $this->db->get('post');
+      return $post->result_array();
+    }
+
 }

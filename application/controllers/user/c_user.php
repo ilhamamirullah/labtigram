@@ -49,7 +49,7 @@
         'judul' =>$this->input->post('judul'),
         'deskripsi' =>$this->input->post('deskripsi'),
         'kategori' =>('video'),
-        'nama_file' =>$vidname.$vidname1,
+        'nama_file' =>$vidname.".".mp4,
       );
       $config['upload_path'] = 'assets/post'; # check path is correct
       $config['max_size'] = '20000'; # max size 20mb on here

@@ -17,33 +17,37 @@
      <div class="row">
 
       <!-- foto pada home -->
+      <?php foreach($record as $a): ?><!-- perulangan disini -->
       <div class="col s6 m4">
-        <div class="waves-effect waves-light">
-         <a href="#modal"><img src="<?php echo base_url(); ?>assets/post/ex.jpeg" width="100%"></a>
-        </div>
+      <div class="waves-effect waves-light">
+      <?php if($a['kategori'] == 'gambar'): ?><!-- percabangan disini -->
+      <a href="#<?php echo $a['id_post']; ?>"><img src="<?php echo base_url(); ?>assets/post/<?php echo $a['nama_file']; ?>"></a>
+      <?php else: ?>
+      <a href="#<?php echo $a['id_post']; ?>"><video src="<?php echo base_url(); ?>assets/post/<?php echo $a['nama_file']; ?>"></a>
+      <?php endif; ?><!-- akhir percabangan -->
       </div>
-      <div class="col s6 m4">
-        <div class="waves-effect waves-light">
-         <a href="#modal"><img src="<?php echo base_url(); ?>assets/post/ex.jpeg" width="100%"></a>
-        </div>
       </div>
-      <div class="col s6 m4">
-        <div class="waves-effect waves-light">
-         <a href="#modal"><img src="<?php echo base_url(); ?>assets/post/ex.jpeg" width="100%"></a>
-        </div>
-      </div>
+      <?php endforeach; ?><!-- akhir perulangan -->
       <!-- akhir foto pada home -->
 
      </div>
 
      <!-- modal home -->
-   <div id="modal" class="modal">
-    <div class="z-depth-3 home ">
-     <h5>nama pembuat konten</h5>
-     <img src="<?php echo base_url(); ?>assets/post/ex.jpeg">
-     <p>deskripsi konten</p>
+     <?php foreach($record as $b): ?><!-- perulangan disini -->
+    <div id="<?php echo $b['id_post']; ?>" class="modal">
+    <div class="z-depth-3 home">
+    <h5><?php echo $b['name']; ?></h5>
+    <?php if($b['kategori'] == 'gambar'): ?><!-- percabangan disini -->
+    <img src="<?php echo base_url(); ?>assets/post/<?php echo $b['nama_file']; ?>">
+    <?php else: ?>
+    <video class="responsive-video" controls>
+    <source src="<?php echo base_url(); ?>assets/post/<?php echo $b['nama_file']; ?>" type="video/mp4">
+    </video>
+    <?php endif; ?><!-- akhir percabangan -->
+    <p><?php echo $b['deskripsi']; ?></p>
     </div>
-   </div>
+    </div>
+    <?php endforeach; ?><!-- akhir perulangan -->
    <!-- akhir modal home -->
 
     </div>
@@ -143,35 +147,40 @@
        <div class="row">
 
         <!-- tampil foto profile -->
+        <?php foreach($record1 as $c): ?><!-- perulangan disini -->
         <div class="col s6 m4">
-         <div class="waves-effect waves-light">
-          <a href="#modal1"><img src="<?php echo base_url(); ?>assets/post/ex.jpeg" width="100%"></a>
-         </div>
+        <div class="waves-effect waves-light">
+        <?php if($c['kategori'] == 'gambar'): ?><!-- percabangan disini -->
+        <a href="#<?php echo $c['judul']; ?>"><img class="responsive-img" src="<?php echo base_url(); ?>assets/post/<?php echo $c['nama_file']; ?>"></a>
+        <?php else: ?>
+        <a href="#<?php echo $c['judul']; ?>"><video src="<?php echo base_url(); ?>assets/post/<?php echo $c['nama_file']; ?>"></a>
+        <?php endif; ?><!-- akhir percabangan -->
         </div>
-        <div class="col s6 m4">
-         <div class="waves-effect waves-light">
-          <a href="#modal1"><img src="<?php echo base_url(); ?>assets/post/ex.jpeg" width="100%"></a>
-         </div>
         </div>
-        <div class="col s6 m4">
-         <div class="waves-effect waves-light">
-          <a href="#modal1"><img src="<?php echo base_url(); ?>assets/post/ex.jpeg" width="100%"></a>
-         </div>
-        </div>
+        <?php endforeach; ?><!-- akhir perulangan -->
         <!-- akhir tampil foto profile -->
 
        </div>
 
        <!-- modal profile -->
-       <div id="modal1" class="modal">
-        <div class="z-depth-3 home">
-         <h5>nama pembuat konten</h5>
-         <img src="<?php echo base_url(); ?>assets/post/ex.jpeg">
-         <p>deskripsi konten</p>
-         <a href="#modal2"><i class="material-icons">edit</i></a>
-         <a href=""><i class="material-icons">delete</i></a>
-        </div>
-       </div>
+       <?php foreach($record1 as $d): ?><!-- perulangan disini -->
+      <div id="<?php echo $d['judul']; ?>" class="modal">
+      <div class="z-depth-3 home">
+      <h5><?php echo $d['name']; ?></h5>
+      <?php if($d['kategori'] == 'gambar'): ?><!-- percabangan disini -->
+      <img src="<?php echo base_url(); ?>assets/post/<?php echo $d['nama_file']; ?>">
+      <?php else: ?>
+      <video class="responsive-video" controls>
+      <source src="<?php echo base_url(); ?>assets/post/<?php echo $d['nama_file']; ?>" type="video/mp4">
+      </video>
+      <?php endif; ?><!-- akhir percabangan -->
+      <h5><?php echo $d['judul']; ?></h5>
+      <p><?php echo $d['deskripsi']; ?></p>
+      <a href="#modal2"><i class="material-icons">edit</i></a>
+      <a href=""><i class="material-icons">delete</i></a>
+      </div>
+      </div>
+      <?php endforeach; ?><!-- akhir perulangan -->
        <!-- akhir modal profile -->
 
        <!-- modal edit foto pada profile -->
