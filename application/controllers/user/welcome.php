@@ -16,15 +16,16 @@ class Welcome extends CI_Controller {
 
 	public function index(){
 		$data['record'] = $this->m_user->getPost();
-$name = $this->session->userdata('username');
-$a = $this->m_user->getId($name)->row();
-$id = $a->id;
-$data['record1'] = $this->m_user->getPostMe($id);
-$this->load->view('user/header');
-$this->load->view('user/index',$data);
-$this->load->view('user/footer');
+		$name = $this->session->userdata('username');
+		$a = $this->m_user->getId($name)->row();
+		$id = $a->id;
+		$data['record1'] = $this->m_user->getPostMe($id);
+		$this->load->view('user/header');
+		$this->load->view('user/index',$data);
+		$this->load->view('user/footer');
 	}
-	public function about(){
+	public function about()
+	{
 		$this->load->view('user/header');
 		$this->load->view('user/about');
 		$this->load->view('user/footer');
