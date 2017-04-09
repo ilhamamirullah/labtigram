@@ -40,4 +40,21 @@
       return $post->result_array();
     }
 
+    function updatepost($input)
+    {
+      $this->db->where('id_post',$input['id_post']);
+      $this->db->update('post',$input);
+      return TRUE;
+    }
+
+    function deletepost($id_post)
+    {
+      $this->db->where('id_post',$id_post);
+      $query = $this->db->get('post');
+      $row = $query->row();
+      unlink("assets/post/$row->nama_file");
+      $this->db->delete('post', array('id_post' => $id_post));
+      return TRUE;
+    }
+
 }

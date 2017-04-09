@@ -66,4 +66,20 @@
         redirect('user/welcome');
         }
       }
+
+//update pert4
+      function updatepost(){
+        $input = array(
+        'id_post' =>$this->input->post('id'),
+        'judul' =>$this->input->post('judul'),
+        'deskripsi' =>$this->input->post('deskripsi'),
+        );
+        $this->m_user->updatepost($input);
+        redirect('user/welcome');
+      }
+
+        function deletepost($id_post){
+          $this->m_user->deletepost($id_post);
+          redirect('user/welcome');
+        }
   }
