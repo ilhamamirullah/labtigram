@@ -176,35 +176,48 @@
      <?php endif; ?><!-- akhir percabangan -->
      <h5><?php echo $d['judul']; ?></h5>
      <p><?php echo $d['deskripsi']; ?></p>
-     <a href="#modal2"><i class="material-icons">edit</i></a>
-     <a href=""><i class="material-icons">delete</i></a>
+     <a href="#<?php echo $d['nama_file']; ?>"><i class="material-icons">edit</i></a>
+     <a href="<?php echo base_url(); ?>user/c_user/deletepost/<?php echo $d['id_post'];?>"><i class="material-icons">delete</i></a>
      </div>
      </div>
      <?php endforeach; ?><!-- akhir perulangan -->
       <!-- akhir modal profile -->
 
       <!-- modal edit foto pada profile -->
-      <div id="modal2" class="modal">
-       <div class="z-depth-3 home">
-        <div class="center">
-         <h5>Edit deskripsi konten</h5>
-        </div>
-         <div class="row">
-          <form method="post" action="" style="padding: 10px">
-           <div class="input-field col s12 m6 file-field">
-            <img src="<?php echo base_url(); ?>assets/post/ex.jpeg" width="100%">
-           </div>
-           <div class="input-field col s12 m6">
-            <textarea id="textarea1" class="materialize-textarea" required name="deskripsi"></textarea>
-            <label for="textarea1">Deskripsi</label>
-           </div>
-           <div class="center">
-            <input class="waves-effect waves-light btn" type="submit" name="submit" value="UPDATE">
-           </div>
-         </form>
-        </div>
-       </div>
+      <?php foreach($record1 as $e): ?><!-- perulangan disini -->
+      <div id="<?php echo $e['nama_file']; ?>" class="modal">
+      <div class="z-depth-3 home">
+      <div class="center">
+      <h5>Edit deskripsi konten</h5>
       </div>
+      <div class="row">
+      <form method="post" action="<?php echo base_url(); ?>user/c_user/updatepost" style="padding: 10px">
+      <input type="hidden" name="id" value="<?php echo $e['id_post']; ?>">
+      <div class="input-field col s12 m6 file-field">
+      <?php if($e['kategori'] == 'gambar'): ?><!-- percabangan disini -->
+      <img src="<?php echo base_url(); ?>assets/post/<?php echo $e['nama_file']; ?>">
+      <?php else: ?>
+      <video class="responsive-video" controls>
+      <source src="<?php echo base_url(); ?>assets/post/<?php echo $e['nama_file']; ?>" type="video/mp4">
+      </video>
+      <?php endif; ?><!-- akhir percabangan -->
+      </div>
+      <div class="input-field col s12 m6">
+      <input id="icon_prefix" type="text" class="validate" required name="judul" value="<?php echo $e['judul']; ?>">
+      <label for="icon_prefix">Judul</label>
+      </div>
+      <div class="input-field col s12 m6">
+      <textarea id="textarea1" class="materialize-textarea" required name="deskripsi"><?php echo $e['deskripsi']; ?></textarea>
+      <label for="textarea1">Deskripsi</label>
+      </div>
+      <div class="center">
+      <input class="waves-effect waves-light btn" type="submit" name="submit" value="UPDATE">
+      </div>
+      </form>
+      </div>
+      </div>
+      </div>
+      <?php endforeach; ?><!-- akhir perulangan -->
       <!-- akhir modal edit foto pada profile -->
 
      </div>
